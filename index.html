@@ -34,7 +34,14 @@
 <h2>╮(╯▽╰)╭       ╮(╯▽╰)╭     ╮(╯▽╰)╭       ╮(╯▽╰)╭     ╮(╯▽╰)╭       ╮(╯▽╰)╭</h2>
 
 <h2>——2012.9.17</h2>
-
+<p>
+1，location 里面的变量和content_by_lua里面的变量是通用的。你可以在里面location里面设置 set $wbc 然后在后者里面调用 ngx.var.wbc.
+content_by_lua_file只是content_by_lua的一个提取，所以同样在xxx.lua里面调用ngx.var.wbc也是毫无问题的。
+2，但是有点要注意的是，httpredis是一个模块，httpluamodul是一个模块，lua_redis_parser又是另外一个模块。如果你是记得用lua
+对redis进行操作的话，记得在lua文件里的首行添加local parser = require "redis.parser" 进行redis解析。
+3，正则表达式大部分是通用的。但是lua比较小，所以只支持部分规则。
+4，对lua的table和ipairs等迭代器要熟悉，特别是table.insert等.
+</p>
 <p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
 
 <pre><code>$ cd your_repo_root/repo_name
