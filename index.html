@@ -46,7 +46,7 @@ content_by_lua_file只是content_by_lua的一个提取，所以同样在xxx.lua�
 <p>哑元变量：就是一个你不需要它给你提供信息，但是函数又需要它的存在。例如函数有两个返回值，但是我只想取第二个返回值，那么就
 可以用到哑元变量了。（因为你不用第二个变量它会把第二个参数默认为第一个参数）</p>
 <p>例如，下面代码涌来计算一个字符串中空格出现的次数：</p>
-<pre><code>$ cd your_repo_root/repo_name
+<pre><code>
 $ _, count = string.gsub(str, " ", " ")
 </code></pre>
 
