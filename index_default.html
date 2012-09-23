@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Hopestar.github.com : hello,it is my git blog" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Hopestar.github.com</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/hopestar">View on GitHub</a>
+
+          <h1 id="project_title">冒着被人鄙视的眼光有尊严的学习</h1>
+          <h2 id="project_tagline">hello,it is my git blog</h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>Welcome to GitHub Pages.</h3>
+
+<p>##惭愧，花了这么久才把这个弄出来。接下来要看下怎么在写出一个界面了。O(╯□╰)o。希望有时间吧。好像很复杂的样子</p>
+
+<h2>╮(╯▽╰)╭       ╮(╯▽╰)╭     ╮(╯▽╰)╭       ╮(╯▽╰)╭     ╮(╯▽╰)╭       ╮(╯▽╰)╭</h2>
+
+<h2>——2012.9.17</h2>
+<p>
+1，location 里面的变量和content_by_lua里面的变量是通用的。你可以在里面location里面设置 set $wbc 然后在后者里面调用 ngx.var.wbc.
+content_by_lua_file只是content_by_lua的一个提取，所以同样在xxx.lua里面调用ngx.var.wbc也是毫无问题的。
+2，但是有点要注意的是，httpredis是一个模块，httpluamodul是一个模块，lua_redis_parser又是另外一个模块。如果你是记得用lua
+对redis进行操作的话，记得在lua文件里的首行添加local parser = require "redis.parser" 进行redis解析。
+3，正则表达式大部分是通用的。但是lua比较小，所以只支持部分规则。
+4，对lua的table和ipairs等迭代器要熟悉，特别是table.insert等.
+</p>
+<h2>--2012/9/21</h2>
+<p>哑元变量：就是一个你不需要它给你提供信息，但是函数又需要它的存在。例如函数有两个返回值，但是我只想取第二个返回值，那么就
+可以用到哑元变量了。（因为你不用第二个变量它会把第二个参数默认为第一个参数）</p>
+<p>例如，下面代码涌来计算一个字符串中空格出现的次数：</p>
+<pre><code>
+$ _, count = string.gsub(str, " ", " ")
+</code></pre>
+
+
+
+
+
+
+
+
+<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+
+<pre><code>$ cd your_repo_root/repo_name
+$ git fetch origin
+$ git checkout gh-pages
+</code></pre>
+
+<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+
+<h3>Designer Templates</h3>
+
+<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+
+<h3>Rather Drive Stick?</h3>
+
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>Authors and Contributors</h3>
+
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
