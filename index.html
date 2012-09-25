@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 layout:default
 title: �ҵĸ����²�blog
 ---
@@ -9,3 +10,18 @@ title: �ҵĸ����²�blog
 		<li>{{post.date|date_to_string}} <a href="{{post.url}}">{{post.title}}</a></li>
 		{% endfor %}
 </ul>
+=======
+layout: default
+title: 主页
+---
+
+<div id="content">
+  <h1>主页</h1>
+  <p>欢迎访问，下面是最近的文章：</p>
+  <ul id="list">
+  {% for post in site.posts %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a> <span>Posted on {{ post.date | date_to_string }}</span></li>
+  {% endfor %}
+  </ul>
+</div>
+>>>>>>> 82cf3d02cb5b02084850e4209dbd0bfa2aaa5f32

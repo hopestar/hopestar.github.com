@@ -1,1 +1,10 @@
+<<<<<<< HEAD
 baseurl: /hopestar.github.com/
+=======
+markdown: rdiscount
+permalink: pretty
+
+title: 守望
+describe: 记录学习和工作！
+copyright: 所有文字内容在CC-by-sa-3.0协议下发布，任何人都可以在该协议条款的要求下自由使用这些内容。
+>>>>>>> 82cf3d02cb5b02084850e4209dbd0bfa2aaa5f32
