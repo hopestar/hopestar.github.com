@@ -28,6 +28,9 @@ root /usr/local/nginx/html/inginx.com;
 charset utf-8;
 
 }
+=========================
+
+disappiontment
 
 
 
