@@ -14,9 +14,9 @@ redis-lua是redis的lua客户端，通过一次建立连接，然后进行操作
         p:incrby('counter', 30)
         p:get('counter')
         end)    
-###大家好，我是重点。
-nginx的[lua-resty-redis](https://github.com/richardhahahaha/lua-resty-redis)
-这个是nginx的一个模块，里面的大部分指令和redis-lua是一样的，应该是对redis-lua的一些改造。   
+###大家好，下面是重点君。
+##nginx的[lua-resty-redis](https://github.com/agentzh/lua-resty-redis)            
+这个是nginx的一个模块，里面的大部分指令和redis-lua是一样的，应该是对redis-lua的一些改造。          
 但是里面的pipeline的实现方式有些不同，这边是实现方式是：    
         red:init_pipeline()
         red:incrby('counter', 10)
