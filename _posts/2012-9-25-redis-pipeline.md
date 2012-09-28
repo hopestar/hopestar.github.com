@@ -1,37 +1,38 @@
 ---
 layout: default
-title: redis pipelineµÄÊµÏÖ·½Ê½
+title: redis pipelineçš„å®ç°
 ---
-##pipeline
-redisµÄpipeline(¹ÜµÀ)¹¦ÄÜÔÚÃüÁîĞĞÖĞÃ»ÓĞ£¬µ«redisÊÇÖ§³ÖpipelineµÄ£¬¶øÇÒÔÚ¸÷¸öÓïÑÔ°æµÄclientÖĞ¶¼ÓĞÏàÓ¦µÄÊµÏÖ¡£ 
-Ö®ËùÒÔÃüÁîĞĞÃ»ÓĞÊÇÒòÎªRedis±¾ÉíÊÇÒ»¸öcsÄ£Ê½µÄtcp server, client¿ÉÒÔÍ¨¹ıÒ»¸ösocketÁ¬Ğø·¢Æğ¶à¸öÇëÇóÃüÁî¡£ 
-Ã¿¸öÇëÇóÃüÁî·¢³öºóclientÍ¨³£»á×èÈû²¢µÈ´ıredis·şÎñ¶Ë´¦Àí£¬redis·şÎñ¶Ë´¦ÀíÍêºó½«½á¹û·µ»Ø¸øclient¡£ 
-ËùÒÔÍ¨¹ıpipeline·½Ê½½«client¶ËÃüÁîÒ»Æğ·¢³ö£¬redis server»á´¦ÀíÍê¶àÌõÃüÁîºó£¬½«½á¹ûÒ»Æğ´ò°ü·µ»Øclient,´Ó¶ø½ÚÊ¡´óÁ¿µÄÍøÂçÑÓ³Ù¿ªÏú¡£ redisÊÇÖ§³ÖÕâÖÖpipeline·½Ê½.
-##redis-lua
-redis-luaÊÇredisµÄlua¿Í»§¶Ë£¬Í¨¹ıÒ»´Î½¨Á¢Á¬½Ó£¬È»ºó½øĞĞ²Ù×÷¡£¾ßÌå¹æÔò²ÎÕÕÔ´Âë redis-luaµÄpipelineµÄÊµÏÖ·½Ê½ÊÇ£º
-local replies = client:pipeline(function(p)
-p:incrby('counter', 10)
-p:incrby('counter', 30)
-p:get('counter')
-end)    
-´ó¼ÒºÃ£¬ÎÒÊÇÖØµã¡£
-nginxµÄlua-resty-redis
-Õâ¸öÊÇnginxµÄÒ»¸öÄ£¿é£¬ÀïÃæµÄ´ó²¿·ÖÖ¸ÁîºÍredis-luaÊÇÒ»ÑùµÄ£¬Ó¦¸ÃÊÇ¶Ôredis-luaµÄÒ»Ğ©¸ÄÔì¡£ 
-µ«ÊÇÀïÃæµÄpipelineµÄÊµÏÖ·½Ê½ÓĞĞ©²»Í¬£¬Õâ±ßÊÇÊµÏÖ·½Ê½ÊÇ£º
-red:init_pipeline()
-    red:incrby('counter', 10)
-    red:incrby('counter', 30)
-    red:get('counter')
-local repies,err = red:commit_pipeline()
-if not repies then
-        ngx.say("erro",err)
-        return
-end
-for i,res in ipairs(repies) do
-ngx.say("counter:",res)
-end   
-µ±ÎÒĞ´µ½ÕâµÄÊ±ºò£¬ÎÒ·¢ÏÖÁ½ÕßµÄ²»Í¬µÄ»¹ÓĞÊÇÒòÎªredis-luaÀïÃæÓÃµÄÊÇÒ»¸öº¯Êı£¬ÎÒ°Ñredis-luaµÄ´úÂë·Åµ½nginx.confµÄÊ±ºò·¢ÏÖ±¨´í
- attempt to call method 'pipeline' (a nil value)
-    stack traceback:    
-¸öÈËÀí½âÊÇ£ºËäÈ»Í¬ÎªluaÄÜ½âÎö£¬µ«ÊÇËüÊÇ·ÅÔÚnginxÀïÃæµÄ£¬i/o»¹ÊÇºÍnginxµÄi/oÓĞ¹Ø£¬Ö±½Ó·Å½øÈ¥ÊÇ²»ÄÜ¹»½âÎöµÄ¡£over¡£
+##Pipeline
+redisçš„pipeline(ç®¡é“)åŠŸèƒ½åœ¨å‘½ä»¤è¡Œä¸­æ²¡æœ‰ï¼Œä½†redisæ˜¯æ”¯æŒpipelineçš„ï¼Œè€Œä¸”åœ¨å„ä¸ªè¯­è¨€ç‰ˆçš„clientä¸­éƒ½æœ‰ç›¸åº”çš„å®ç°ã€‚    
+ä¹‹æ‰€ä»¥å‘½ä»¤è¡Œæ²¡æœ‰æ˜¯å› ä¸ºRedisæœ¬èº«æ˜¯ä¸€ä¸ªcsæ¨¡å¼çš„tcp server, clientå¯ä»¥é€šè¿‡ä¸€ä¸ªsocketè¿ç»­å‘èµ·å¤šä¸ªè¯·æ±‚å‘½ä»¤ã€‚     
+æ¯ä¸ªè¯·æ±‚å‘½ä»¤å‘å‡ºåclienté€šå¸¸ä¼šé˜»å¡å¹¶ç­‰å¾…redisæœåŠ¡ç«¯å¤„ç†ï¼ŒredisæœåŠ¡ç«¯å¤„ç†å®Œåå°†ç»“æœè¿”å›ç»™clientã€‚    
+æ‰€ä»¥é€šè¿‡pipelineæ–¹å¼å°†clientç«¯å‘½ä»¤ä¸€èµ·å‘å‡ºï¼Œredis serverä¼šå¤„ç†å®Œå¤šæ¡å‘½ä»¤åï¼Œå°†ç»“æœä¸€èµ·æ‰“åŒ…è¿”å›client,ä»è€ŒèŠ‚çœå¤§é‡çš„ç½‘ç»œå»¶è¿Ÿå¼€é”€ã€‚ redisæ˜¯æ”¯æŒè¿™ç§pipelineæ–¹å¼.      
+##[redis-lua](https://github.com/nrk/redis-lua)
+redis-luaæ˜¯redisçš„luaå®¢æˆ·ç«¯ï¼Œé€šè¿‡ä¸€æ¬¡å»ºç«‹è¿æ¥ï¼Œç„¶åè¿›è¡Œæ“ä½œã€‚å…·ä½“è§„åˆ™å‚ç…§æºç  redis-luaçš„pipelineçš„å®ç°æ–¹å¼æ˜¯ï¼š 
+        local replies = client:pipeline(function(p)
+        p:incrby('counter', 10)
+        p:incrby('counter', 30)
+        p:get('counter')
+        end)    
+###å¤§å®¶å¥½ï¼Œæˆ‘æ˜¯é‡ç‚¹ã€‚
+nginxçš„[lua-resty-redis](https://github.com/richardhahahaha/lua-resty-redis)
+è¿™ä¸ªæ˜¯nginxçš„ä¸€ä¸ªæ¨¡å—ï¼Œé‡Œé¢çš„å¤§éƒ¨åˆ†æŒ‡ä»¤å’Œredis-luaæ˜¯ä¸€æ ·çš„ï¼Œåº”è¯¥æ˜¯å¯¹redis-luaçš„ä¸€äº›æ”¹é€ ã€‚   
+ä½†æ˜¯é‡Œé¢çš„pipelineçš„å®ç°æ–¹å¼æœ‰äº›ä¸åŒï¼Œè¿™è¾¹æ˜¯å®ç°æ–¹å¼æ˜¯ï¼š    
+        red:init_pipeline()
+        red:incrby('counter', 10)
+        red:incrby('counter', 30)
+        red:get('counter')
+        local repies,err = red:commit_pipeline()
+        if not repies then
+                ngx.say("erro",err)
+                return
+        end
+        for i,res in ipairs(repies) do
+        ngx.say("counter:",res)
+        end   
+å½“æˆ‘å†™åˆ°è¿™çš„æ—¶å€™ï¼Œæˆ‘å‘ç°ä¸¤è€…çš„ä¸åŒçš„è¿˜æœ‰æ˜¯å› ä¸ºredis-luaé‡Œé¢ç”¨çš„æ˜¯ä¸€ä¸ªå‡½æ•°ï¼Œæˆ‘æŠŠredis-luaçš„ä»£ç æ”¾åˆ°nginx.confçš„æ—¶å€™å‘ç°æŠ¥é”™
+         attempt to call method 'pipeline' (a nil value)
+            stack traceback:    
+ä¸ªäººç†è§£æ˜¯ï¼šè™½ç„¶åŒä¸ºluaèƒ½è§£æï¼Œä½†æ˜¯å®ƒæ˜¯æ”¾åœ¨nginxé‡Œé¢çš„ï¼Œi/oè¿˜æ˜¯å’Œnginxçš„i/oæœ‰å…³ï¼Œç›´æ¥æ”¾è¿›å»æ˜¯ä¸èƒ½å¤Ÿè§£æçš„ã€‚overã€‚
+
 
