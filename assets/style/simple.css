@@ -3,7 +3,7 @@
  */
 
 /** Template Style **/
-body { margin: 0 auto 30px auto; width: 780px; font-family: Tahoma, 'Microsoft Yahei', sans-serif; font-size: 16px; color: #454545; }
+body { margin: 0 auto 30px auto; width: 780px; font-family: Tahoma, 'Microsoft Yahei', sans-serif; font-size: 16px; color: #454545;background:beige }
 
 h1, h2 { font-weight: 500; }
 h1 { margin: 0 0 13px 0; font-size: 1.7em; }
