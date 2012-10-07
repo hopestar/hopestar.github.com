@@ -27,7 +27,7 @@ nginx配置执行共有11个阶段，其中3个不支持注册处理程序，剩
     
     8,post-access(不支持注册处理程序)；
     
-    9,try-file:实习try-file功能，不支持注册；
+    9,try-file:实现try-file功能，不支持注册；
     
     10,content(这里content handle是竞争的，一个location里面只能处理一个content handle，所以一个location里面
     这些命令中的只能出现一类):echo,echo_exec,proxy_pass,echo_location,content_by_lua;
