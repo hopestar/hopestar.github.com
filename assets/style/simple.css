@@ -36,6 +36,7 @@ text-align:center;}
 #title { margin-bottom: 0; }
 #title a { color: #454545; }
 #title a:hover { color: #0088cc; }
+a.biger:hover {font-size: 150%}
 
 #date { margin-bottom: 16px; color: #b2b2b2; }
 
