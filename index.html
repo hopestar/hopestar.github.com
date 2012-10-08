@@ -8,7 +8,7 @@ title: 主页
   <p>欢迎访问，下面是最近的文章：</p>
   <ul id="list">
   {% for post in site.posts %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a> <span>Posted on {{ post.date | date_to_string }}</span></li>
+    <li><a class="biger" href="{{ post.url }}">{{ post.title }}</a> <span>Posted on {{ post.date | date_to_string }}</span></li>
   {% endfor %}
   </ul>
 </div>
