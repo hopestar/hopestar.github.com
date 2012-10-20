@@ -1,6 +1,6 @@
 ---
-layout: defauult
-title: ÕÂÒà´º£ºnginxµÄhttp·şÎñÆ÷&Ì×WebÓ¦ÓÃ¿ª·¢¿ò¼Ü 
+layout: default
+title: ç« äº¦æ˜¥ï¼šnginxçš„httpæœåŠ¡å™¨&å¥—Webåº”ç”¨å¼€å‘æ¡†æ¶ 
 ---
 
 <embed src="http://player.ku6.com/refer/D00rqtnRwKzJdIsB/v.swf" width="480" height="400" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash" flashvars="from=ku6"></embed>
