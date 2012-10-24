@@ -13,7 +13,7 @@ title: linux下安装lua常见或不常见问题(system：centos)
 
 那么是因为你没有安装readline包，那么如果你能联网，那么你最好就：  
 > 
-        yum install readline-devel.x86_64  
+    yum install readline-devel.x86_64  
 
 不然的话呢，就和我一样去：  
 http://www.bioinf.org.uk/software/profit/doc/node17.html  
@@ -23,11 +23,11 @@ http://www.bioinf.org.uk/software/profit/doc/node17.html
 但是你现在正为此兴高采烈的话，我只能说你还是 **图样图森普了!!!** 
 你在命令行打lua的时候，你会发现：  
 >
-        error while loading shared libraries: libpq.so.5: cannot open shared object file: No such file or directory  
+    error while loading shared libraries: libpq.so.5: cannot open shared object file: No such file or directory  
 
 你看一用ldd 查看/usr/local/bin里面的lua：  
 > 
-        ldd /usr/local/bin/lua  
+    ldd /usr/local/bin/lua  
 
 会发现：libreadline.so.6 =>no found  
 这是因为你的动态函数库没有加载到高速缓存。  
