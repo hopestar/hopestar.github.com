@@ -16,12 +16,12 @@ consistent hashing 是一种分布式系统中常用的算法。，单的说，�
 ##1.2,一种hash规则
 ##1.3,根据object的哈希值得到server的哈希值的规则
 
-废话少说，我先画张图吧。
+废话少说，我先画张图吧。  
 ![alt O(∩_∩)O~](/img/note/crazy.jpg "画图中....")  
 好了，画完了。就是这样子了。    
 ![alt O(∩_∩)O~](/img/note/hash.png "hash")  
 
-首先我们要明确一点，就是我们手头上是有两个东西（暂且让老衲称它为client和server吧）要做哈希的（不是一个哟！！）,哈希表的目的就是为了建立和client和server的联系。
+首先我们要明确一点，就是我们手头上是有两个东西（暂且让老衲称它为client和server吧）要做哈希的（不是一个哟！！）,哈希表的目的就是为了建立和client和server的联系。  
 ![alt text][1]  
 例如有1000个用户要访问我们的网站，我需要让10台服务器去处理。我希望根据每个用户（根据不同的pin值和信息做成一个key来判别）每次来的时候都
 能访问相同的服务器，如果我们简单的用key%n=n,去得到一个数，然后根据这个数n去访问服务器n,那么这只是一层映射，如果你加减一个服务器，
@@ -52,8 +52,6 @@ murmurhash根据需求位数可分为很多种，这里提供了几种C/C++实�
     {name="",ip="127.0.0.2",port=82,weight=1},
     {name="machine3",ip="127.0.0.3",port=83,weight=1},
     }
-    
-    
     --char to number base on ascii
     function chartonumber(char)
     local i=32
@@ -65,8 +63,6 @@ murmurhash根据需求位数可分为很多种，这里提供了几种C/C++实�
      i=i+1
      end
     end
-    
-    
     --table for keep virtual nodes and real nodes
     nodes={}
     
