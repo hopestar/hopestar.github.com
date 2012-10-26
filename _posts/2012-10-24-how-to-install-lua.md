@@ -33,7 +33,7 @@ http://www.bioinf.org.uk/software/profit/doc/node17.html
 这是因为你的动态函数库没有加载到高速缓存。  
 这时候你需要配置vi /etc/ld.so.conf  
 加入 bin的路径（注意这里加的是路径哟。直接在第二次添上路径就可以了，不要加在第一行后面）  
-如[这篇文章](http://hi.baidu.com/sing520/item/d27bbd39cb2d72fe97f88d5b)所言，  
+如[这篇文章](http://hi.baidu.com/sing520/item/d27bbd39cb2d72fe97f88d5b)和[这篇文章](http://blog.csdn.net/dzcdeposit/article/details/6606365)所言，  
 再运行lua,就可以了。  
 当然，你可能还会遇到一些其它的奇奇怪怪的问题，例如：[像什么要configure神马的](http://storysky.blog.51cto.com/628458/345982)    
 好了,这时候你差不多就可以用基本的lua了。
