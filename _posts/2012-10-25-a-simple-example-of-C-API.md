@@ -182,4 +182,9 @@ vim hash64.c
     [root@qrwefsdf www]# lua hash.lua 
     1876582853
 
-好了，今天就到这了。呼~好累啊~感觉不会再爱了。
+好了，今天就到这了。呼~好累啊~感觉不会再爱了。  
+
+最后再link几个我觉得还可以的链接吧。  
+[注释很详细的小实例](http://www.cnblogs.com/stephen-liu74/archive/2012/07/23/2469902.html)  
+[lua函数的查询](http://www.lua.org/manual/5.1/manual.html#pdf-string.format)  
+[这个实例主要看后面对C API的分析,可以当成源码分析的入门吧](http://blog.csdn.net/ym012/article/details/7188707)  
