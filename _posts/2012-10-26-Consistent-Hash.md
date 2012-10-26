@@ -25,8 +25,8 @@ consistent hashing 是一种分布式系统中常用的算法。，单的说，�
 ![alt text][1]  
 例如有1000个用户要访问我们的网站，我需要让10台服务器去处理。我希望根据每个用户（根据不同的pin值和信息做成一个key来判别）每次来的时候都
 能访问相同的服务器，如果我们简单的用key%n=n,去得到一个数，然后根据这个数n去访问服务器n,那么这只是一层映射，如果你加减一个服务器，
-key%(n+1),key%(n-1)都会令大部分用户访问的服务器改变了。所以我们需要的是一个中间层（呵呵哈，这是我自己提出来的名词），这个中间层
-是一个数值空间(或者叫哈希空间，通常的 hash 算法都是将 value 映射到一个 32 为的 key 值，也即是 0~2^32-1 次方的数值空间；)，client映射到上面是一个数字，server映射到上面也是一个数字，然后，我们按照client的数字取比它大最少的而且有服务器对应的一个数字，
+key%(n+1),key%(n-1)都会令大部分用户访问的服务器改变了。   
+所以我们需要的是一个中间层（呵呵哈，这是我自己提出来的名词），这个中间层是一个数值空间(或者叫哈希空间，通常的 hash 算法都是将 value 映射到一个 32 为的 key 值，也即是 0~2^32-1 次方的数值空间；)，client映射到上面是一个数字，server映射到上面也是一个数字，然后，我们按照client的数字取比它大最少的而且有服务器对应的一个数字，
 然后取出这个数字对应的服务器作为它要访问的服务器。（有点拗口，但是聪明如你，应该能懂的），这样一来，如果加减服务器的话，原来的client对应的
 哈希值是没有变的，而原来没坏了的服务器因为机器名字没变，所以它的哈希值也没变，所以它们之间的对应是没有问题的。那么原来对应那台坏了的客户请求
 就会迁移到另外一台服务器上。  
@@ -64,8 +64,7 @@ murmurhash根据需求位数可分为很多种，这里提供了几种C/C++实�
      end
     end
     --table for keep virtual nodes and real nodes
-    nodes={}
-    
+    nodes={} 
     --inital virtual nodes
     function virnode_init(shards,nodes)
     for i,shardinfo in pairs(shards) do
@@ -77,7 +76,7 @@ murmurhash根据需求位数可分为很多种，这里提供了几种C/C++实�
       else
             for n=0,160*shardinfo.weight do
             table.insert(nodes,{hashlib.murmurhash64b(shardinfo.name.."*"..shardinfo.weight..n),shardinfo})
-            --i can't understand why add this for nodes.key,why not add shardinfo.name only
+            --i can not understand why add this for nodes.key,why not add shardinfo.name only
             end
       end
     end
