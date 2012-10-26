@@ -81,8 +81,7 @@ murmurhash根据需求位数可分为很多种，这里提供了几种C/C++实�
       end
     end
     return
-    end
-        
+    end     
     function getshardinfo(nodes,key)
     local i=0
     local nodeinfo=nil
