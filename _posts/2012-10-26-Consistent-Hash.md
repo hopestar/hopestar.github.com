@@ -82,7 +82,7 @@ murmurhash根据需求位数可分为很多种，这里提供了几种C/C++实�
     end
     return
     end
-    
+        
     function getshardinfo(nodes,key)
     local i=0
     local nodeinfo=nil
@@ -107,6 +107,6 @@ murmurhash根据需求位数可分为很多种，这里提供了几种C/C++实�
 
 
 
-参考资料：
+参考资料：  
 [一致性hash算法详解](http://blog.csdn.net/tianmo2010/article/details/6838312)  
 [一致性哈希算法与Java实现](http://www.blogjava.net/hello-yun/archive/2012/10/10/389289.html)
