@@ -2,8 +2,8 @@
 .sb-slider{
 	margin:10px auto;
 	position:fixed;
-	top:30px;
-	right:20px;
+	top:10px;
+	right:60px;
 }
 .sb-slider img{ 
 	display:none; 
