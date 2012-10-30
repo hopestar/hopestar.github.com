@@ -11,7 +11,7 @@
 .sb-nav span{
 	width:42px;
 	height:42px;
-	background:#28241f url(../images/nav.png) no-repeat top left;
+	background:#28241f url(img/lady/nav.png) no-repeat top left;
 	position:absolute;
 	top:50%;
 	left:-50px;
@@ -74,7 +74,7 @@
   bottom:-70px;
   left:50%;
   margin-left:-368px;
-  background:transparent url(../images/shadow.png) no-repeat top left;
+  background:transparent url(img/lady/images/shadow.png) no-repeat top left;
   height:168px;
   width:736px;
   z-index:1;
