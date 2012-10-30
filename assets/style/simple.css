@@ -20,13 +20,10 @@ code { font-family: Consolas, 'Microsoft Yahei', monospace; }
 #header { padding: 8px 10px 10px 10px; color: #454545; }
 
 #content { padding: 10px 15px 10px 15px; background:beige; border-radius: 0 0 3px 3px; border-bottom: 2px solid #e2e2e9; box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15); }
-#sidebar{ float:right;
+#sidebar{ 
 position:fixed;
 top:30px;
 right:5px;
-margin:0 0 15px 20px;
-padding:15px;
-border:1px solid black;
 text-align:center;}
 
 #footer { padding: 10px; font-size: 0.8em; }
