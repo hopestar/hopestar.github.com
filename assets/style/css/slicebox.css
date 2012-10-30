@@ -11,7 +11,7 @@
 .sb-nav span{
 	width:42px;
 	height:42px;
-	background:#28241f url(img/lady/nav.png) no-repeat top left;
+	background:#28241f url(../img/lady/nav.png) no-repeat top left;
 	position:absolute;
 	top:50%;
 	left:-50px;
@@ -42,7 +42,7 @@
 .sb-options span{
 	width:30px;
 	height:30px;
-	background:#28241f url(img/lady/options.png) no-repeat top left;
+	background:#28241f url(../img/lady/options.png) no-repeat top left;
 	text-indent:-9000px;
 	cursor:pointer;
 	opacity:0.9;
@@ -74,7 +74,7 @@
   bottom:-70px;
   left:50%;
   margin-left:-368px;
-  background:transparent url(img/lady/images/shadow.png) no-repeat top left;
+  background:transparent url(../img/lady/shadow.png) no-repeat top left;
   height:168px;
   width:736px;
   z-index:1;
