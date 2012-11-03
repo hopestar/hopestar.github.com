@@ -13,7 +13,7 @@
 </head>
 <body>
   <div class="sidebar">
-		  <h2 id="sb-note" style="display:none;"><span>ע�����Դ�����������Safari����ҳ�濴����3DЧ����</span></h2>
+		  <h2 id="sb-note" style="display:none;">
 			<div class="line"></div>
 			<div id="sb-slider" class="sb-slider">
 				<img src="img/lady/1.jpg" title="Creative Lifesaver"/>
@@ -37,7 +37,7 @@
 					sequentialFactor	: 100
 				});
 				
-				if( Modernizr.csstransforms3d ) {
+				if( !Modernizr.csstransforms3d ) {
 					$('#sb-note').show();
 					
 					$('#sb-examples > li:gt(2)').remove();
