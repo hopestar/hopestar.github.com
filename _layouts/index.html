@@ -24,6 +24,7 @@
 				<img src="img/lady/6.jpg" title="Groundbreaking Artist"/>
 				<img src="img/lady/7.jpg" title="Groundbreaking Artist"/>
 				<img src="img/lady/8.jpg" title="Groundbreaking Artist"/>
+			</div>
 		<script type="text/javascript" src="assets/script/js/jquery.min.js"></script>
 		<script type="text/javascript" src="assets/script/js/jquery.slicebox.min.js"></script>
 		<script type="text/javascript">
@@ -36,7 +37,7 @@
 					sequentialFactor	: 100
 				});
 				
-				if( !Modernizr.csstransforms3d ) {
+				if( Modernizr.csstransforms3d ) {
 					$('#sb-note').show();
 					
 					$('#sb-examples > li:gt(2)').remove();
