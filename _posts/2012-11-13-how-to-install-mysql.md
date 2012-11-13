@@ -1,3 +1,4 @@
+---
 layout: default
 title: linux下如何安装mysql 5.5
 ---
