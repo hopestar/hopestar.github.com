@@ -1,5 +1,5 @@
 layout: default
-title:linux下如何安装mysql 5.5
+title: linux下如何安装mysql 5.5
 ---
 故事是这样滴~这样滴~  
 因为redis试完了，当然就想用nginx连上mysql嘛， 虽然原来的服务器上dba已经装了几个mysql，但是我不知道dba是谁，所以肯定不会厚颜无耻的去
