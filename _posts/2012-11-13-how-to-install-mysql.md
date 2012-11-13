@@ -67,9 +67,221 @@ title: linux下如何安装mysql 5.5
 如果你不幸的发现有这个提示：  
      Starting MySQL.. ERROR! The server quit without updating PID file (/usr/local/mysql/data/localhost.localdomain.pid) 
 那么说明你权限不足，你可以试试解决方法：编辑/etc/init.d/mysql，找到start模块，添加--user=root到mysqld_safe。。。后面就可以  
-例如：
+例如：  
       $bindir/mysqld_safe --datadir="$datadir"  --user="bbc"   --pid-file="$mysqld_pid_file_path" $other_args >/dev/null 2>&1 & 
 这样应该就差不多了。上面的bbc是我的用户名，你可以换成你的。就这样应该就差不多了吧。但是引起这个错误的可能还有其它方法，比如
 你的文件夹权限不足什么的，具体请百度（因为18big召开，google你估计不能用了） 
+        /etc/init.d/mysql start
+    然后就可以了。  
+接下来演示的是一些小实例:   
+>
+        [root@rac2 ~]# mysql -u root -p
+        Enter password:
+        Welcome to the MySQL monitor.  Commands end with ; or \g.
+        Your MySQL connection id is 6
+        Server version: 5.5.15 MySQL CommunityServer (GPL)
+         
+        Copyright (c) 2000, 2010, Oracle and/or itsaffiliates. All rights reserved.
+         
+        Oracle is a registered trademark of OracleCorporation and/or its
+        affiliates. Other names may be trademarksof their respective
+        owners.
+         
+        Type 'help;' or '\h' for help. Type '\c' toclear the current input statement.
+         
+        --查看已经存在的数据库，这几个是安装时自动创建的
+        mysql> show databases;
+        +--------------------+
+        | Database           |
+        +--------------------+
+        | information_schema |
+        | mysql              |
+        | performance_schema |
+        | test               |
+        +--------------------+
+        4 rows in set (0.00 sec)
+         
+        --使用mysql 数据库
+        mysql> use mysql
+        Reading table information for completion oftable and column names
+        You can turn off this feature to get aquicker startup with -A
+         
+        Database changed
+         
+        --查看mysql 数据库下面的表
+        mysql> show tables;
+        +---------------------------+
+        | Tables_in_mysql           |
+        +---------------------------+
+        | columns_priv              |
+        | db                        |
+        | event                     |
+        | func                      |
+        | general_log               |
+        | help_category             |
+        | help_keyword              |
+        | help_relation             |
+        | help_topic                |
+        | host                      |
+        | ndb_binlog_index          |
+        | plugin                    |
+        | proc                      |
+        | procs_priv                |
+        | proxies_priv              |
+        | servers                   |
+        | slow_log                  |
+        | tables_priv               |
+        | time_zone                 |
+        | time_zone_leap_second     |
+        | time_zone_name            |
+        | time_zone_transition      |
+        | time_zone_transition_type |
+        | user                      |
+        +---------------------------+
+        24 rows in set (0.01 sec)
+         
+        --创建数据库Dave
+        mysql> create database dave;
+        Query OK, 1 row affected (0.01 sec)
+         
+        --在dave 数据库下面创建dave表：
+        mysql> use dave;
+        Database changed
+        mysql> create table dave(id int,namechar(20));
+        Query OK, 0 rows affected (0.01 sec)
+         
+        --查看dave 表结构：
+        mysql> desc dave;
+        +-------+----------+------+-----+---------+-------+
+        | Field | Type     | Null | Key | Default | Extra |
+        +-------+----------+------+-----+---------+-------+
+        | id   | int(11)  | YES  |     | NULL   |       |
+        | name | char(20) | YES  |     | NULL   |       |
+        +-------+----------+------+-----+---------+-------+
+        2 rows in set (0.00 sec)
+         
+        --向dave 表里插入2条记录：
+        mysql> insert into davevalues(1,'dave');
+        Query OK, 1 row affected (0.00 sec)
+         
+        mysql> insert into davevalues(2,'anqing');
+        Query OK, 1 row affected (0.01 sec)
+         
+        mysql> select * from dave;
+        +------+--------+
+        | id  | name   |
+        +------+--------+
+        |   1 | dave   |
+        |   2 | anqing |
+        +------+--------+
+        2 rows in set (0.00 sec)
+         
+        --update 表：
+        mysql> update dave set name='david dai'where id=1;
+        Query OK, 1 row affected (0.01 sec)
+        Rows matched: 1  Changed: 1 Warnings: 0
+         
+        mysql> select * from dave;
+        +------+-----------+
+        | id  | name      |
+        +------+-----------+
+        |   1 | david dai |
+        |   2 | anqing    |
+        +------+-----------+
+        2 rows in set (0.00 sec)
+         
+        --drop 表：
+        mysql> drop table dave;
+        Query OK, 0 rows affected (0.01 sec)
+         
+        --drop 数据库：
+        mysql> drop database dave;
+        Query OK, 0 rows affected (0.00 sec)
+         
+        mysql> show databases;
+        +--------------------+
+        | Database           |
+        +--------------------+
+        | information_schema |
+        | mysql              |
+        | performance_schema |
+        | test               |
+        +--------------------+
+        4 rows in set (0.01 sec)
+ 
+ ps:
+>
+        1.新建用户。
+        
+        //登录MYSQL
+        @>mysql -u root -p
+        @>密码
+        //创建用户
+        mysql> insert into mysql.user(Host,User,Password) values("localhost","phplamp",password("1234"));
+        //刷新系统权限表
+        mysql>flush privileges;
+        这样就创建了一个名为：phplamp  密码为：1234  的用户。
+        
+        然后登录一下。
+        
+        mysql>exit;
+        @>mysql -u phplamp -p
+        @>输入密码
+        mysql>登录成功
+        
+        2.为用户授权。
+        
+        //登录MYSQL（有ROOT权限）。我里我以ROOT身份登录.
+        @>mysql -u root -p
+        @>密码
+        //首先为用户创建一个数据库(phplampDB)
+        mysql>create database phplampDB;
+        //授权phplamp用户拥有phplamp数据库的所有权限。
+        >grant all privileges on phplampDB.* to phplamp@localhost identified by '1234';
+        //刷新系统权限表
+        mysql>flush privileges;
+        mysql>其它操作
+        
+        /*
+        如果想指定部分权限给一用户，可以这样来写:
+        mysql>grant select,update on phplampDB.* to phplamp@localhost identified by '1234';
+        //刷新系统权限表。
+        mysql>flush privileges;
+        */
+        
+        3.删除用户。
+        @>mysql -u root -p
+        @>密码
+        mysql>DELETE FROM user WHERE User="phplamp" and Host="localhost";
+        mysql>flush privileges;
+        //删除用户的数据库
+        mysql>drop database phplampDB;
+        
+        4.修改指定用户密码。
+        @>mysql -u root -p
+        @>密码
+        mysql>update mysql.user set password=password('新密码') where User="phplamp" and Host="localhost";
+        mysql>flush privileges;
+ps2:
+>   
+        查询数据库所有用户:
+        SELECT DISTINCT CONCAT('User: ''',user,'''@''',host,''';') AS query FROM mysql.user;        
+        查看mysql的当前登陆用户 
+        select user();
+        使用mysql登录数据库后，如何查看当前数据库
+        1. 通过函数database()实现
+            mysql> SELECT database();
+        2. 通过show tables实现
+            mysql> show tables;
+            注：注意查看列头形式, 格式为：Tables_in_[db_name]
+            www.2cto.com  
+        3. 通过status实现
+            mysql> status;
+            注：注意结果中的"Current database"信息
+        4.查看端口
+            mysql> show variables like 'port';
+
+
+
 
 
