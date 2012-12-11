@@ -90,7 +90,6 @@ vim hash64.c
     {
      const unsigned int m = 0x5bd1e995;
             const int r = 24;
-    
             unsigned int h1 = seed ^ len;
             unsigned int h2 = 0;
     
