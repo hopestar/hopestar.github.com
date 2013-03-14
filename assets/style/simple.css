@@ -25,6 +25,11 @@ position:fixed;
 top:30px;
 right:5px;
 text-align:center;}
+#weibo{ 
+position:fixed;
+top:30px;
+left:5px;
+text-align:center;}
 
 #footer { padding: 10px; font-size: 0.8em; }
 
