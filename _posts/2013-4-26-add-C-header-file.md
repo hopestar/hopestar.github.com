@@ -6,23 +6,23 @@ title: C语言编写自己的头文件和多文件编译
 一般都是在XXX.h 中声明你自己定义的函数，然后XXX.c中实现。
 举个栗子：
 >
-  /*----wbc.h----*/
-     #ifndef   _WBC_H   
-     #define   _WBC_H
-     void fuck();
-     #endif
-     /*----wbc.c-----*/
-  #include"wbc.h"
-  void fuck()
-  {
-      printf("fuck!");
-  }
+  /*----wbc.h----*/   
+     #ifndef   _WBC_H       
+     #define   _WBC_H 
+     void fuck();     
+     #endif 
+     /*----wbc.c-----*/ 
+  #include"wbc.h" 
+  void fuck() 
+  { 
+      printf("fuck!");  
+  } 
    
-  /*---bbc.c----*/
-  #include"wbc.h"
-  main(){
-      fuck();
-  }
+  /*---bbc.c----*/  
+  #include"wbc.h" 
+  main(){ 
+      fuck(); 
+  } 
 >
 -----------------------------------------
 注意点的就是一般在.h中都是声明，尽量少#include其它头文件，免得重复包含了。
