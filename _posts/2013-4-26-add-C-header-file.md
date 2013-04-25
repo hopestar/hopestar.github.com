@@ -23,8 +23,6 @@ title: C语言编写自己的头文件和多文件编译
   main(){     
       fuck();     
   }   
->
-
 
 -----------------------------------------
 注意点的就是一般在.h中都是声明，尽量少#include其它头文件，免得重复包含了。
@@ -37,13 +35,14 @@ title: C语言编写自己的头文件和多文件编译
   gcc -c wbc.c //生成wbc.o  
    
   gcc -o bbc bbc.o wbc.o  
- >  
+
  
 和可以用Makefile  
 
->
-  bbc : bbc.o wbc.o 
-      gcc -o bbc bbc.o wbc.o #记住第二行有tab哟~  
-  bbc.o : bbc.c 
-  wbc.o : wbc.h 
->                
+> 
+  
+  bbc : bbc.o wbc.o   
+      gcc -o bbc bbc.o wbc.o #记住第二行有tab哟~    
+  bbc.o : bbc.c   
+  wbc.o : wbc.h   
+             
