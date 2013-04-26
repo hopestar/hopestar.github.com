@@ -6,7 +6,8 @@ title: C语言编写自己的头文件和多文件编译
 一般都是在XXX.h 中声明你自己定义的函数，然后XXX.c中实现。
 举个栗子：
 >
-   /*----wbc.h----*/   
+   
+      /*----wbc.h----*/   
      #ifndef   _WBC_H       
      #define   _WBC_H 
      void fuck();     
