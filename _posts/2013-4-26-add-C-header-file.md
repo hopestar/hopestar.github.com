@@ -6,7 +6,7 @@ title: C语言编写自己的头文件和多文件编译
 一般都是在XXX.h 中声明你自己定义的函数，然后XXX.c中实现。
 举个栗子：
 >
-  /*----wbc.h----*/   
+   /*----wbc.h----*/   
      #ifndef   _WBC_H       
      #define   _WBC_H 
      void fuck();     
@@ -31,8 +31,7 @@ title: C语言编写自己的头文件和多文件编译
 编译的时候：
 >
     gcc -c bbc.c //生成bbc.o  
-    gcc -c wbc.c //生成wbc.o  
-     
+    gcc -c wbc.c //生成wbc.o    
     gcc -o bbc bbc.o wbc.o  
 
  
