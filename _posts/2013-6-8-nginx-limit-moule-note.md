@@ -1,8 +1,8 @@
 ---
 layout: default
-title: nginx限制IP链接数的范例参考
+title: nginx限制IP连接数的范例参考
 ---
-nginx 限制ip并发数，nginx限制IP链接数的范例参考：
+nginx 限制ip并发数，nginx限制IP连接数的范例参考：
 
 
 
