@@ -1,6 +1,6 @@
 ---
 layout: default
-title: nginx限制IP连接数的范例参考
+title: nginx限制IP连接和请求模块试用
 ---
 nginx 限制ip并发数，nginx限制IP连接数的范例参考：
 
