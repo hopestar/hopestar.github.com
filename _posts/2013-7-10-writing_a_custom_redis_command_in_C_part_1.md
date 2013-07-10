@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 用C编写自定义的redis命令
+title: 用C编写自定义的redis命令- part-1
 ---
 
 不久前，我们发现自己在需要一个ZDIFF 的Redis命令。我们可以像我们其他的代码一样在Lua中实现，但为什么不直接在Redis中实现呢？ Redis的伟大的事情之一是有一个干净的代码库，即使对于像我这样的一个非常生疏的C程序员来说。
@@ -139,4 +139,6 @@ redisObjects（robj）是基本的对象结构。它包装底层的数据结构�
 你可以返回并make下代码。接下来，运行redis（./src/redis-server），通过客户端redis-cli 连接到它。您可以尝试传递各种xfind的参数，以确保它的所有工作正常（不用担心，在某些时候，我们会适当增加测试）。
 
 在接下来的部分，我们将构建xdiff的核心代码。
+
+原文:[http://openmymind.net/Writing-A-Custom-Redis-Command-In-C-Part-1/]
 
