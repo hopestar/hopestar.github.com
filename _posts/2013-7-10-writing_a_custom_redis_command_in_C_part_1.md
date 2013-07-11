@@ -86,7 +86,7 @@ key1 value1 key2 value2 key3 value3, 我们要用： 1,5,1 来表示。5是表�
       if ((getLongFromObjectOrReply(c, c->argv[3], &offset, NULL) != REDIS_OK)) { return; }
       if ((getLongFromObjectOrReply(c, c->argv[4], &count, NULL) != REDIS_OK)) { return; }
 
-这两行告诉Redis的第三和第四参数以long类型加载到我们的变量offset和count。如果失败，Redis的会回复一个错误信息（或者我们可以在第四个参数指定自定义错误消息）。我们可以默认我们的变量（比如0和10），但让我们先用简单的退出函数来代替。
+这两行告诉Redis的第三和第四参数以long类型加载到我们的变量offset和count。如果失败，Redis的会回复一个错误信息（或者我们可以在第四个参数指定自定义错误消息）。我们可以默认我们的变量（比如0和10），但让我们先用简单的退出吧。
 
 我们也希望载入我们的有序集和集合（argv[1]和argv[2]），并希望确保它们是正确的类型：
     
