@@ -92,4 +92,5 @@ lookupKeyReadOrReply函数是用来返回一个redis的对象（robj），我们
 
 也许这个实现过于具体，但希望你能从中领悟到如何建立一个你自己的命令。
 
+[原文链接](http://openmymind.net/Writing-A-Custom-Redis-Command-In-C-Part-2/)
 
