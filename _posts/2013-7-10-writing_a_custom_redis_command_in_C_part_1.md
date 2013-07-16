@@ -140,5 +140,5 @@ redisObjects（robj）是基本的对象结构。它包装底层的数据结构�
 
 在接下来的部分，我们将构建xdiff的核心代码。
 
-原文:[http://openmymind.net/Writing-A-Custom-Redis-Command-In-C-Part-1/]
+[原文链接](http://openmymind.net/Writing-A-Custom-Redis-Command-In-C-Part-1/)
 
