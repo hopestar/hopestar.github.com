@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Writing a Custom Redis Command In C - Part 2
+title: 用C编写自定义的redis命令- part-2
 ---
 在第1部分我们建立了xfind的方法和并将其嵌入redis。现在是时候写实际执行部分的代码了。提醒一下，我们的目标是得到一个有序集合，从中减去一组，并提供分页（偏移/计数）。
 
