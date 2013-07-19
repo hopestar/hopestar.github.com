@@ -55,8 +55,10 @@ lookupKeyReadOrReply函数是用来返回一个redis的对象（robj），我们
 各位亲，到这里，就是一个量身定制的xdiff的简单实现了，这是所有类型的改进方法。我们可以添加一个命令的参数或实现类似排序的GET的功能。
 我们做的最后一个改进是直接跳到offset，。因为我们知道，我们不会找到一个适合我们的页面直到item。我们可以简单地使用的zslGetElementByRank功能，而不是指向集合的尾部。我们完整的代码看起来像：
 
-    #include "redis.h"void xdiffCommand(redisClient *c) {
-      long offset, count, found = 0, added = 0;
+      #include "redis.h"
+      zskiplistNode* zslGetElementByRank(zskiplist *zsl, unsigned long rank);
+      void xdiffCommand(redisClient *c) {
+      long offset, count, added = 0;
       robj *zobj, *sobj;
       zset *zset;
       dict *diff;
