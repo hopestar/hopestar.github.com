@@ -37,31 +37,31 @@ title: linux下如何安装mysql 5.5
 接下来就是make 和 make install了。  
 等待的时间你可以出去找你室友玩一会，如果你不是用虚拟机的话，你还可以打一盘dota~   
 好了，用6.67版本的小黑爽完以后，你可以继续回来安装了。接下来是要拷贝一些东西。  
->   
+  
     cp support-files/my-medium.cnf /etc/my.cnf  
     cp support-files/mysql.server /etc/init.d/mysqld  
->
+
 然后修改下my.conf里面的端口（因为原来的端口可能已经被人用了）
->
-    [root@qrwefsdf software]# vim /etc/my.cnf   
-    #password       = your_password
-    port            = 8806
-    socket          = /tmp/mysqld.sock
+
+        [root@qrwefsdf software]# vim /etc/my.cnf   
+        #password       = your_password
+        port            = 8806
+        socket          = /tmp/mysqld.sock
     
-    # Here follows entries for some specific programs
-    
-    # The MySQL server
-    [mysqld]
-    port            = 8806
-    socket          = /tmp/mysqld.sock
->
+        # Here follows entries for some specific programs
+        
+        # The MySQL server
+        [mysqld]
+        port            = 8806
+        socket          = /tmp/mysqld.sock
+
 然后修改下服务器的配置:(不是全按下面的配置配啊，我是按我自己的路径来的啊喂~，你们也要一样按自己的路径来啊喂~如果你不知道你往下看
 几行脚本你也知道路径是什么了啊喂~因为脚本里面有啊喂~)   
 >
-[root@qrwefsdf software]# vim /etc/init.d/mysqld 
- basedir=/usr/local  
- datadir=/home/server/mysqldata 
->
+        [root@qrwefsdf software]# vim /etc/init.d/mysqld 
+         basedir=/usr/local  
+         datadir=/home/server/mysqldata 
+
 这时候你差不多就可以开开心心的运行mysql了。请运行：   
  /etc/init.d/mysqld start
 如果你不幸的发现有这个提示：  
