@@ -2,7 +2,7 @@
 layout: default
 title:  nginx对redis取数据的不同方式
 ---
-#1，二逼方式
+#1，原生态方式
 用的是[httpredis2module](http://wiki.nginx.org/HttpRedis2Module)的原始方式。    
  新建一个upstream：   
      upstream redis_server{
@@ -60,7 +60,7 @@ title:  nginx对redis取数据的不同方式
         end     
 用的是ngx.location.capture调用redis2进行过渡（是这意思吧？是因为lua里面没有proxy_pass的缘故么？）。
 
-#3，文艺方式    
+#3 在lua内部的连接方式    
 用[lua-resty-redis](https://github.com/agentzh/lua-resty-redis)的方式，相对于前面几种方式的好处是你不是用proxy_pass，
 所以你可以对连接（redis:new(),redis:connect()）等方式写在一起，而且对连接的状态（如一次连接的操作次数get_reused_times）
 进行获取。不足就是目前还不知道要对集群的话怎么弄。应该可以自己写一个random函数对几个backend进行轮询了。不过感觉这样就没什么意思了。
