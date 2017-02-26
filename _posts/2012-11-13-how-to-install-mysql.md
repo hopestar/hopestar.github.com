@@ -13,6 +13,7 @@ title: linux下如何安装mysql 5.5
 旁白：够了啊喂！(#`O′)  这可是篇安装教程的帖子啊~不是吐槽贴啊喂！(#`O′) ！！！  
 咳咳~好了，转正题. 
 如果你是用yum install 的话呢，推荐看下这个，我就不再赘述。
+[CSDN上的一篇](http://www.cnblogs.com/zhangkaimin/p/4171269.html)
 我这里说的是一个很随便的方法，严谨的话随便百度一下，得到的都是很严谨的答案。像[百度文库的这篇](http://wenku.baidu.com/view/fdb43e350b4c2e3f572763ab.html)也蛮言简意赅的。 
 1，首先你需要下载一个[源码包](http://dev.mysql.com/downloads/mysql/#downloads)~（不是rpm包哟，如果你下的是rpm包那个点下这个[链接](http://www.2cto.com/database/201111/111980.html)，这是介绍rpm包安装的，我没试过，纯粹是友情推荐，^-^ ，我是不是很有爱涅？O(∩_∩)O哈哈哈~）  
 (ps:其实我觉得源码包安装的话，这篇[文章](http://www.jb51.net/article/28751.htm)也不错,推荐之。“喂~两种你都推荐看其它教程了，那你这篇文章还有什么意义啊喂？”“额，这...算是补丁嘛~可能会出现的问题你可以参考一下嘛”“额~Pia!(ｏ ‵-′)ノ”(ノ﹏<。) ”)  
